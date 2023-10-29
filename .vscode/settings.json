@@ -1,0 +1,32 @@
+{
+  "explorer.fileNesting.patterns": {
+    "*.py": "$(capture)_test.py",
+    "requirements.in": "requirements.txt, requirements.dev.in, requirements.dev.txt, requirements.build.in, requirements.build.txt",
+    "Makefile": "bitbucket-pipelines.yml",
+    "ruff.toml": ".editorconfig"
+  },
+  "python.analysis.autoImportCompletions": true,
+  "[python]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.ruff": true,
+      "source.organizeImports.ruff": true
+    }
+  },
+  "files.associations": {
+    "*.http": "http",
+    "requirements*.in": "pip-requirements",
+    "requirements*.txt": "pip-requirements"
+  },
+  "files.exclude": {
+    ".idea": true,
+    ".pytest_cache": true,
+    ".ruff_cache": true,
+    ".venv": true,
+    "**/__pycache__": true,
+    "**/__init__.py": true,
+    "requirements.txt": true
+  },
+  "python.testing.pytestArgs": ["app"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
+}

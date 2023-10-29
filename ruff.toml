@@ -1,0 +1,16 @@
+target-version = "py312"
+
+select = ["ALL"]
+ignore = ["D", "ANN101", "ANN401", "BLE001", "F841"]
+per-file-ignores = { "*_test.py" = ["S101"] }
+
+line-length = 120
+
+flake8-bugbear.extend-immutable-calls = [
+    "fastapi.Depends",
+    "fastapi.params.Depends",
+    "fastapi.Query",
+    "fastapi.params.Query",
+]
+
+flake8-annotations.suppress-none-returning = true

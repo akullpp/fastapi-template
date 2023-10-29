@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "njpwerner.autodocstring",
+    "editorconfig.editorconfig",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "humao.rest-client",
+    "charliermarsh.ruff"
+  ],
+  "unwantedRecommendations": []
+}

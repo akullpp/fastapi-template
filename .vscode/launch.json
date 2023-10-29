@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "FastAPI",
+      "type": "python",
+      "request": "launch",
+      "module": "uvicorn",
+      "pythonArgs": ["-Xfrozen_modules=off"],
+      "args": ["app.main:app", "--reload"],
+      "justMyCode": true,
+      "env": {
+        "PYDEVD_DISABLE_FILE_VALIDATION": "1",
+        "API_KEY": "70248dc7-72e7-4d10-bf4b-21693db89805",
+        "NAME": "fastapi"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+asyncpg
+boto3
+fastapi
+httpx
+loguru
+openpyxl
+pandas
+pydantic
+pytest
+python-multipart
+ruff
+SQLAlchemy
+uvicorn
