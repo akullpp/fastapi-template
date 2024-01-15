@@ -1,5 +1,6 @@
 asyncpg
 boto3
+cryptography
 fastapi
 httpx
 loguru
@@ -7,7 +8,9 @@ openpyxl
 pandas
 pydantic
 pytest
+python-jose
 python-multipart
 ruff
-SQLAlchemy
+sqlalchemy[asyncio]
+sqlmodel
 uvicorn
