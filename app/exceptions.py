@@ -1,7 +1,7 @@
 from fastapi import Request
-from fastapi.responses import JSONResponse
 
 from app import utilities
+from app.response import JsonResponse
 
 
 class CustomError(Exception):
@@ -21,19 +21,27 @@ class CustomError(Exception):
         class_name = self.__class__.__name__
         return f"{class_name}(code={self.code!r}, key={self.key!r})"
 
-    def json(self) -> JSONResponse:
+    def json(self) -> JsonResponse:
         code = self.code
         content = {
             "key": self.key,
         }
-        utilities.add_all(content, [
-            ("message", self.message),
-            ("details", self.details),
-        ])
-        return JSONResponse(content, code)
+        headers = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Expose-Headers": "*",
+            "Access-Control-Allow-Credentials": "true",
+        }
+        utilities.add_all(
+            content,
+            [
+                ("message", self.message),
+                ("details", self.details),
+            ],
+        )
+        return JsonResponse(content, code, headers)
 
 
-async def custom_exception_handler(_: Request, exception: Exception) -> JSONResponse:
+async def custom_exception_handler(_: Request, exception: Exception) -> JsonResponse:
     if isinstance(exception, CustomError):
         return exception.json()
 
@@ -42,7 +50,7 @@ async def custom_exception_handler(_: Request, exception: Exception) -> JSONResp
     }
     utilities.add(content, ("message", str(exception)))
 
-    return JSONResponse(
+    return JsonResponse(
         status_code=500,
         content=content,
     )

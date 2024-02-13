@@ -1,7 +1,7 @@
 target-version = "py312"
 
 select = ["ALL"]
-ignore = ["D", "ANN101", "ANN401", "BLE001", "F841"]
+ignore = ["D", "ANN101", "ANN401", "BLE001", "F841", "SIM108"]
 per-file-ignores = { "*_test.py" = ["S101"] }
 
 line-length = 120

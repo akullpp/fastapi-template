@@ -2,7 +2,7 @@ from functools import reduce
 from typing import Any
 
 
-def safe_get(dictionary: dict, keys: str, default:Any=None) -> Any | None:
+def safe_get(dictionary: dict, keys: str, default: Any = None) -> Any | None:
     """Safely gets a value from a dictionary using a dot-separated string of keys."""
     return reduce(lambda d, key: d.get(key, default) if isinstance(d, dict) else default, keys.split("."), dictionary)
 

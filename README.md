@@ -80,6 +80,14 @@ Get [ruff](https://github.com/astral-sh/ruff) up and running in your IDE.
 
 For each router, add an `http` file which contains at least one happy path request for each endpoint.
 
+### Responses
+
+Don't use `fastapi.responses.*`, e.g. `JSONResponse` or `Response`.
+
+The CORS middleware won't be applied and the correct headers won't be set resulting in the response not to be readable in the frontend.
+
+Use `app.response.JsonResponse`.
+
 ### Exceptions
 
 There's only one type of exception you should raise, `CustomError` and it **must** look like this:
